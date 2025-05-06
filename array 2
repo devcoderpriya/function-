@@ -1,0 +1,14 @@
+#include<stdio.h>
+int main()
+{
+int size;
+printf("enter the element:-");
+scanf("%d"<&size);
+
+int priya[size];
+printf(int i=0;i<size;i++){
+printf("[%d]",i);
+scanf("%d",&priya[i]);
+}
+return 0;
+}
