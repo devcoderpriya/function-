@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+int main() {
+   int a;
+   printf("enter the element:-");
+   scanf("%d",&a);
+   
+   int arr[a];
+   int i;
+   int product=1;
+
+   for(i=0;i<a;i++)
+{
+    scanf("%d",&arr[i]);
+}
+printf("\n element of array");
+     for(i=0;i<a;i++){
+     product=product*arr[i];
+     }
+     printf("%d\n",product);
+    return 0;
+}
