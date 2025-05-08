@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int findFirstRepeating(int arr[], int n) {
+    // Create an auxiliary array to track visited elements
+    int* visited = (int*)calloc(n, sizeof(int)); // Initialize to 0
+
+    for (int i = 0; i < n; i++) {
+        if (visited[arr[i]] == 1) {
+            free(visited);
+            return arr[i]; // Found the first repeating element
+        }
+        visited[arr[i]] = 1;
+    }
+
+    free(visited);
+    return -1; // No repeating element found
+}
+
+int main() {
+    int arr[] = {10, 5, 3, 4, 3, 5, 6};
+    int n = sizeof(arr) / sizeof(arr[0]);
+
+    int result = findFirstRepeating(arr, n);
+    if (result == -1)
+        printf("No repeating element found.\n");
+    else
+        printf("First repeating element: %d\n", result);
+
+    return 0;
+}
