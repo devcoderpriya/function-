@@ -1,0 +1,35 @@
+#include <stdio.h>
+
+int main() {
+    int n, i, odd_sum = 0, even_sum = 0, odd_count = 0, even_count = 0;
+    float avg;
+    
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+
+    int arr[n]; // Storing all inputs in an array
+
+    printf("Enter %d numbers:\n", n);
+    for (i = 0; i < n; i++) {
+        scanf("%d", &arr[i]); // Directly storing in array
+    }
+
+    // Now processing the array
+    for (i = 0; i < n; i++) {
+        if (arr[i] % 2 == 0) {
+            even_sum += arr[i];
+            even_count++;
+        } else {
+            odd_sum += arr[i];
+            odd_count++;
+        }
+    
+    }
+    avg=odd_sum/odd_count;
+   printf("%f",avg);
+    avg=even_sum/even_count;
+   printf("%f",avg);
+   
+
+    return 0;
+}
