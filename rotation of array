@@ -1,0 +1,51 @@
+#include <stdio.h>
+
+void rotateLeft(int arr[], int n, int positions) {
+    // Ensure positions is within array bounds
+    positions = positions % n;
+
+    // Handle negative positions for right rotation
+    if (positions < 0) {
+        positions = n + positions;
+    }
+
+    // Temporary array to store rotated elements
+    int temp[positions];
+
+    // Copy the first 'positions' elements to the temporary array
+    for (int i = 0; i < positions; i++) {
+        temp[i] = arr[i];
+    }
+
+    // Shift the remaining elements to the left
+    for (int i = positions; i < n; i++) {
+        arr[i - positions] = arr[i];
+    }
+
+    // Copy the elements from the temporary array to the end of the original array
+    for (int i = 0; i < positions; i++) {
+        arr[n - positions + i] = temp[i];
+    }
+}
+
+int main() {
+    int arr[] = {1, 2, 3, 4, 5};
+    int n = sizeof(arr) / sizeof(int);
+    int positions = 2;
+
+    printf("Original array: ");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+
+    rotateLeft(arr, n, positions);
+
+    printf("Rotated array: ");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
